@@ -11,7 +11,7 @@
   <body>
 
     <!-- auth modals -->
-    <div class="auth open">
+    <!-- <div class="auth open">
       <div class="modal">
         <h2>Login</h2>
         <form class="login">
@@ -32,7 +32,7 @@
         </form>
         <div>Got an account? <a class="switch">Login instead</a></div>
       </div>
-    </div>
+    </div> -->
 
     <!-- new request modal -->
     <div class="new-request">
@@ -50,6 +50,8 @@
       <nav>
         <a class="add-request">add request</a>
         <a class="sign-out">sign out</a>
+        <button class="saveToken">saveToken</button>
+        <button class="sendNotification">sendNotification</button>
       </nav>
     </header>
 
@@ -75,6 +77,7 @@
     <script src="/__/firebase/7.7.0/firebase-auth.js"></script>
     <script src="/__/firebase/7.7.0/firebase-firestore.js"></script>
     <script src="/__/firebase/7.7.0/firebase-functions.js"></script>
+    <script src="/__/firebase/7.7.0/firebase-messaging.js"></script>
     <!-- initialize the SDK after all desired features are loaded -->
     <script src="/__/firebase/init.js"></script>
 

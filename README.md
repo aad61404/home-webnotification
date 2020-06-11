@@ -7,6 +7,9 @@ https://www.youtube.com/watch?v=29BNaJiqWB4
 參考 Messaging 就好
 https://codelabs.developers.google.com/codelabs/firebase-cloud-functions/#0
 
+3. youtuber
+https://www.youtube.com/watch?v=7lKAvarlVHs
+
 firebase cloud functions 官方文件
 1. github 
 https://github.com/firebase/functions-samples
