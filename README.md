@@ -14,6 +14,9 @@ https://github.com/firebase/functions-samples
 https://firebase.google.com/docs/functions/get-started?authuser=0
 
 
+HackMd 簡報
+https://hackmd.io/s/how-to-create-slide-deck-tw
+
 1. 官方文檔
 https://firebase.google.com/docs/cloud-messaging/js/first-message
 2. curl post測試
