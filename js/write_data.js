@@ -173,7 +173,7 @@ function saveData(token) {
 
 // function getNameToken() {
 //     var db = firebase.firestore();
-//     var ref = db.collection('Users');
+//     var ref = db.collection('');
 //     // 搜尋名字 拿 token
 //     // 拿到token 後存入colletion - doc 裡
 //     // 使用token 送出通知

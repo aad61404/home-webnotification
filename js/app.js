@@ -34,12 +34,12 @@ requestForm.addEventListener('submit', (e) => {
 
 
 // say hello function call
-const button = document.querySelector('.call');
-button.addEventListener('click', () => {
-    // get function reference
-    const sayHello = firebase.functions().httpsCallable('sayHello');
-    const sayName = document.querySelector('.sayName').value;
-    sayHello({name: sayName}).then(result => {
-        console.log(result.data);
-    })
-})
+// const button = document.querySelector('.call');
+// button.addEventListener('click', () => {
+//     // get function reference
+//     const sayHello = firebase.functions().httpsCallable('sayHello');
+//     const sayName = document.querySelector('.sayName').value;
+//     sayHello({name: sayName}).then(result => {
+//         console.log(result.data);
+//     })
+// })
