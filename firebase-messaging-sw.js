@@ -6,6 +6,7 @@ importScripts('/__/firebase/7.14.4/firebase-messaging.js');
 importScripts('/__/firebase/init.js');
 
 const messaging = firebase.messaging();
+messaging.usePublicVapidKey("BEQ5FxmXcLYw8iETzDqB26Rhdlihtj_u-0qxc8aPAGEpaPf64Oak4ntmUfgTHy_NUmYmsecxdYKCNKovuXe8EqQ");
 
 messaging.setBackgroundMessageHandler(function(payload) {
   console.log('[firebase-messaging-sw.js] Received background message ', payload);
