@@ -109,36 +109,36 @@ exports.sendNotifications = functions.firestore.document('googleUid/{uid}').onCr
 /* ========================
   未完工 6/15
 ======================== */
- exports.sendFollowerNotification12= functions.https.onCall((data, context) => {
-  const name = data.name;
-  console.log('data:', data)
-  console.log('123213')
+//  exports.sendFollowerNotification12= functions.https.onCall((data, context) => {
+//   const name = data.name;
+//   console.log('data:', data)
+//   console.log('123213')
 
-  var registrationToken = 'eLppRO8XmgYXeIWwOrDYVJ:APA91bGy8bYxpp3CQ33pMnFw9_SBLZfZoAlLh2dLHrm4MtBCaT8v6VEZ3mfOrO6kN_1_hmONHm39vkfbRBajdqbtDYTdxD6XpGgilTQnetnIYwi5s_V09VwtfRZWDgNJvOiA-H8evDEt';
+//   var registrationToken = 'eLppRO8XmgYXeIWwOrDYVJ:APA91bGy8bYxpp3CQ33pMnFw9_SBLZfZoAlLh2dLHrm4MtBCaT8v6VEZ3mfOrO6kN_1_hmONHm39vkfbRBajdqbtDYTdxD6XpGgilTQnetnIYwi5s_V09VwtfRZWDgNJvOiA-H8evDEt';
 
-  var message = {
-    data: {
-      title: 'Portugal vs. Denmark',
-      body: '5 to 1',
-      icon: 'firebase-logo.png',
-      click_action: 'http://localhost:8081',
-    },
-    token: registrationToken
-  };
+//   var message = {
+//     data: {
+//       title: 'Portugal vs. Denmark',
+//       body: '5 to 1',
+//       icon: 'firebase-logo.png',
+//       click_action: 'http://localhost:8081',
+//     },
+//     token: registrationToken
+//   };
   
-  // Send a message to the device corresponding to the provided
-  // registration token.
-  admin.messaging().send(message)
-    .then((response) => {
-      // Response is a message ID string.
-      console.log('Successfully sent message:', response);
-    })
-    .catch((error) => {
-      console.log('Error sending message:', error);
-    });
+//   // Send a message to the device corresponding to the provided
+//   // registration token.
+//   admin.messaging().send(message)
+//     .then((response) => {
+//       // Response is a message ID string.
+//       console.log('Successfully sent message:', response);
+//     })
+//     .catch((error) => {
+//       console.log('Error sending message:', error);
+//     });
 
-  return data;
-})
+//   return data;
+// })
 
 
 

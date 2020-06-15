@@ -18,6 +18,13 @@ messaging.usePublicVapidKey(
 const serverKey =
 'AAAAHcqmPqw:APA91bEDMi6ES7vWRdOP-FDJbCokiBeNMg37DOCsP4r-zdLUKss3c5Bw4RLm8O5dHuc7HRlxLyF30fuFUwSrUjf014cWByqJU66amGkBzmCMKfn_cGM5F1Bvw2D_t1RQE3wQN4U_nFym';
 
+var token = '';
+var notification = {
+  "title": "HELLLLO",
+  "body": "yooooo",
+  "icon": "firebase-logo.png",
+}
+
 /* ========================
   Event Listeners
 ======================== */
@@ -27,7 +34,7 @@ requestLink.addEventListener('click', () => {
   requestModal.classList.add('open');
 });
 
-// 關閉 request modal
+// 關閉 request modal｀
 requestModal.addEventListener('click', (e) => {
   if (e.target.classList.contains('new-request')) {
     requestModal.classList.remove('open');
@@ -61,7 +68,7 @@ requestSaveToken.addEventListener('click', (e) => {
 // 送出通知 addEventListener
 requestSendNotification.addEventListener('click', (e) => {
   console.log('clicked');
-  sendNotification();
+  sendNotification(token);
 });
 
 /* ========================
@@ -127,71 +134,33 @@ function saveToken() {
 }
 
 // sendNotification functions
-function sendNotification() {
-  const notification = {
-    title: 'Portugal vs. Denmark',
-    body: '5 to 1',
-    icon: 'firebase-logo.png',
-    click_action: 'http://localhost:8081',
-  };
-
-  fetch('https://fcm.googleapis.com/fcm/send', {
-    method: 'POST',
-    headers: {
-      Authorization: 'key=' + serverKey,
-      'Content-Type': 'application/json',
-    },
-    body: notification,
-  }).then(function (response) {
-      console.log(response);
-    }).catch(function (error) {
-      console.error(error);
-    });
+function sendNotification(token) {
+    fetch('https://fcm.googleapis.com/fcm/send', {
+      method: 'POST',
+      headers: {
+        Authorization: 'key=' + serverKey,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        notification: notification,
+        to: token,
+      }),
+    })
+      .then(function (response) {
+        // console.log(response);
+      })
+      .catch(function (error) {
+        // console.error(error);
+      });
 }
 
 messaging.onMessage((payload) => {
+  var data = payload.notification;
   console.log('Message received. ', payload);
-  // var options = payload.notification;
-  // console.log('options:', options);
-  // var title = options.title;
-  // console.log('title:', title);
-  new Notification(payload.title, payload.data);
+  new Notification(data.title, data);
   // appendMessage(payload.data);
 });
 
-/*
-var token = 'cbVhROfrxxDdwFuwienvww:APA91bEIZcLpm7coh6JTG1WriYFdqz5GgTRPblQoaRGxPfCAufwh_BFtVYkAUuizmGg67zZjV_2nd8xT2_xDVyUekwO-zlByllYHa1zkiMDpmTqJkLkep3PD1RdrWfUAxHx8lzL7W0Fr'
-var serverKey =
-  'AAAAHcqmPqw:APA91bEDMi6ES7vWRdOP-FDJbCokiBeNMg37DOCsP4r-zdLUKss3c5Bw4RLm8O5dHuc7HRlxLyF30fuFUwSrUjf014cWByqJU66amGkBzmCMKfn_cGM5F1Bvw2D_t1RQE3wQN4U_nFym';
-
-const notification = {
-  title: 'Portugal vs. Denmark',
-  body: '5 to 1',
-  icon: 'firebase-logo.png',
-  click_action: 'http://localhost:8081',
-};
-
-function sendNotification(token) {
-  console.log('token:', token);
-  fetch('https://fcm.googleapis.com/fcm/send', {
-    method: 'POST',
-    headers: {
-      Authorization: 'key=' + serverKey,
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      notification: notification,
-      to: token,
-    }),
-  })
-    .then(function (response) {
-      console.log(response);
-    })
-    .catch(function (error) {
-      console.error(error);
-    });
-}
-*/
 
 // Listing all tokens as an array.
 // tokens = Object.keys(tokensSnapshot.val());
